@@ -1,106 +1,106 @@
 export const projects = [
     {
+        id: 0,
+        title: "Smart Village Management",
+        category: "Final Year",
+        description: "My major project: A comprehensive digital ecosystem for rural development. Features a robust REST API backend (Node.js/Express), a dynamic Admin Panel (React) for officials to manage resources, and a dedicated Mobile App for villagers to access services.",
+        techStack: ["React", "Node.js", "Express", "MongoDB", "Mobile App"],
+        image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&q=80" // Tech/Community
+    },
+    {
         id: 1,
         title: "Vision India Project",
-        category: "Full Stack / Angular",
-        description: "A comprehensive project for Vision India, focusing on skill development and information management. Implemented key features for displaying project information and resources. Integrated search functionality to retrieve information (similar to Google search integration).",
-        techStack: ["Angular", "TypeScript", "Rest API"],
-        image: "https://placehold.co/600x400/6366f1/ffffff?text=Vision+India+Project"
+        category: "Admin Panel",
+        description: "Professional admin dashboard developed at Vision India company. A centralized system for managing skill development, student tracking, and resources. Built to handle complex data and search operations.",
+        techStack: ["Angular", "TypeScript", "Node.js"],
+        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
     },
     {
         id: 2,
-        title: "Skillparadise Website",
-        category: "Web Development",
-        description: "An online learning platform designed to offer courses in various industry-driven skills like SAP, Data Analytics, and more. Focused on creating a user-friendly interface for students to browse and enroll in courses.",
-        techStack: ["React", "CSS", "Responsive Design"],
-        image: "https://placehold.co/600x400/ec4899/ffffff?text=Skillparadise"
+        title: "Skillparadise",
+        category: "Website",
+        description: "An educational platform offering courses in SAP, Data Analytics, and more. Features a responsive course catalog, student enrollment system, and instructor portals.",
+        techStack: ["React", "Tailwind", "Firebase"],
+        image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&q=80"
     },
     {
         id: 3,
-        title: "Qfreemart Website",
-        category: "E-commerce",
-        description: "A hyperlocal digital commerce platform connecting customers with local sellers. Features include online ordering, appointment booking, and a seamless shopping experience.",
+        title: "Qfreemart Market",
+        category: "Website",
+        description: "A hyperlocal e-commerce platform connecting local sellers with customers. Includes features for online ordering, appointment booking, and real-time inventory updates.",
         techStack: ["React", "Node.js", "MongoDB"],
-        image: "https://placehold.co/600x400/8b5cf6/ffffff?text=Qfreemart+Website"
+        image: "https://images.unsplash.com/photo-1472851294608-addaec5fa485?w=800&q=80"
     },
     {
         id: 4,
-        title: "Qfreemart Landing Page",
-        category: "Frontend",
-        description: "A high-conversion landing page for Qfreemart built with Angular, highlighting the platform's key features and services to potential users and partners.",
-        techStack: ["Angular", "TypeScript", "SCSS"],
-        image: "https://placehold.co/600x400/10b981/ffffff?text=Qfreemart+Landing"
+        title: "Sales Booster Admin",
+        category: "Admin Panel",
+        description: "A high-performance admin dashboard for tracking sales metrics, team performance, and generating automated reports. Visualizes complex data for better decision making.",
+        techStack: ["React", "Material UI", "Chart.js"],
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
     },
     {
         id: 5,
-        title: "Saree Website",
-        category: "E-commerce",
-        description: "A specialized e-commerce platform for ethnic wear, specifically Sarees. Features product galleries, filtering, and a seamless checkout process.",
-        techStack: ["React", "CSS", "Stripe"],
-        image: "https://placehold.co/600x400/f59e0b/ffffff?text=Saree+Website"
+        title: "Saree Ethnic Store",
+        category: "Website",
+        description: "A niche e-commerce store for ethnic wear. Implements a custom gallery, filtering system, and a secure checkout process powered by Stripe.",
+        techStack: ["React", "Stripe", "CSS Modules"],
+        image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80"
     },
     {
         id: 6,
-        title: "Sales Booster Admin",
-        category: "Admin Dashboard",
-        description: "An administrative dashboard for managing sales data, tracking performance metrics, and boosting team productivity. Includes data visualization and reporting tools.",
-        techStack: ["React", "Chart.js", "Material UI"],
-        image: "https://placehold.co/600x400/3b82f6/ffffff?text=Sales+Booster"
+        title: "Rent App Dashboard",
+        category: "Admin Panel",
+        description: "Centralized management console for a property rental service. Allows admins to manage tenants, properties, payments, and maintenance requests efficiently.",
+        techStack: ["React", "Redux Toolkit", "Ant Design"],
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
     },
     {
         id: 7,
-        title: "Rent App Dashboard",
-        category: "Dashboard",
-        description: "A centralized dashboard for a rental management application. Allows administrators to oversee properties, tenants, and payment statuses efficiently.",
-        techStack: ["React", "Redux", "Tailwind CSS"],
-        image: "https://placehold.co/600x400/ef4444/ffffff?text=Rent+App+Dashboard"
+        title: "Zillavalelly Admin",
+        category: "Admin Panel",
+        description: "Administrative interface for the Zillavalelly platform. Provides tools for content management, user oversight, and system configuration.",
+        techStack: ["React", "Context API", "SASS"],
+        image: "https://images.unsplash.com/photo-1542744094-24638eff58bb?w=800&q=80"
     },
     {
         id: 8,
-        title: "Zillavalelly",
-        category: "Full Stack",
-        description: "A complete solution including a landing page and a dashboard for Zillavalelly. The landing page attracts users while the dashboard provides powerful management tools.",
-        techStack: ["React", "Context API", "CSS Modules"],
-        image: "https://placehold.co/600x400/14b8a6/ffffff?text=Zillavalelly"
+        title: "Floortech Corporate",
+        category: "Website",
+        description: "A modern corporate website for a flooring company. Showcases product patterns, installation services, and a portfolio of past work with a sleek design.",
+        techStack: ["React", "Framer Motion", "Styled Components"],
+        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
     },
     {
         id: 9,
-        title: "Floortech Website",
-        category: "Corporate Website",
-        description: "A professional website for Floortech, showcasing flooring solutions and services. Designed to be visually appealing and informative for potential clients.",
-        techStack: ["React", "Antigravity", "Styled Components"],
-        image: "https://placehold.co/600x400/6b7280/ffffff?text=Floortech"
+        title: "Rent App Mobile",
+        category: "Mobile App",
+        description: "A native experience for tenants to browse rentals, book viewings, and pay rent. Built with React Native to ensuring a smooth cross-platform experience.",
+        techStack: ["React Native", "Expo", "Reanimated"],
+        image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80"
     },
     {
         id: 10,
-        title: "Rent App Mobile",
-        category: "Mobile App",
-        description: "A cross-platform mobile application for rental management built with React Native. Enables users to browse listings and manage rentals on the go.",
-        techStack: ["React Native", "Expo", "Navigation"],
-        image: "https://placehold.co/600x400/8b5cf6/ffffff?text=Rent+App+Mobile"
+        title: "Jewellery ERP",
+        category: "Admin Panel",
+        description: "Enterprise software for jewellery management. Tracks inventory, gold rates in real-time, supplier ledgers, and barcode generation.",
+        techStack: ["React", "Node.js", "PostgreSQL"],
+        image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=800&q=80"
     },
     {
         id: 11,
-        title: "Jewellery ERP",
-        category: "Enterprise Software",
-        description: "an Enterprise Resource Planning system tailored for the jewellery industry. Manages inventory, billing, karigar tracking, and supplier relations.",
-        techStack: ["React", "Node.js", "SQL"],
-        image: "https://placehold.co/600x400/eab308/ffffff?text=Jewellery+ERP"
+        title: "School ERP System",
+        category: "Admin Panel",
+        description: "A complete school management solution covering admissions, attendance, timetables, and fee processing. Designed for scalability and ease of use.",
+        techStack: ["React", "Firebase", "Bootstrap"],
+        image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80"
     },
     {
         id: 12,
-        title: "School ERP",
-        category: "Enterprise Software",
-        description: "A comprehensive management system for educational institutions. Modules include student admission, fee management, attendance, and exam scheduling.",
-        techStack: ["React", "Firebase", "Bootstrap"],
-        image: "https://placehold.co/600x400/06b6d4/ffffff?text=School+ERP"
-    },
-    {
-        id: 13,
-        title: "TMK Computers Website",
-        category: "Business Website",
-        description: "A corporate website for TMK Computers, detailing their IT services, products, and support offerings. Responsive and SEO-optimized.",
-        techStack: ["React", "SEO", "CSS"],
-        image: "https://placehold.co/600x400/a855f7/ffffff?text=TMK+Computers"
+        title: "TMK Computers",
+        category: "Website",
+        description: "IT services portfolio website. Highlights services like hardware repair, software installation, and network setup with SEO-optimized pages.",
+        techStack: ["React", "Next.js", "Tailwind"],
+        image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=800&q=80"
     }
 ];
