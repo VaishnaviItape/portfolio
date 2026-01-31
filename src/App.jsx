@@ -10,11 +10,6 @@ import Footer from './components/Footer';
 function App() {
   return (
     <div className="app">
-      {/* Dynamic Background */}
-      <div className="bg-gradients">
-        <div className="grid-overlay"></div>
-      </div>
-
       <Navbar />
       <Hero />
       <About />
@@ -22,6 +17,8 @@ function App() {
       <Projects />
       <Contact />
       <Footer />
+
+      {/* Removed Gradient Mesh for Cleaner Look */}
     </div>
   );
 }

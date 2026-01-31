@@ -1,11 +1,15 @@
+import smartVillage from '../assets/smart_village.png';
 import visionIndia from '../assets/Vision India.png';
-import skillparadise from '../assets/SkillParsdise.png';
+import skillParadise from '../assets/SkillParsdise.png';
 import qfreemart from '../assets/Qfreemart.png';
 import salesBooster from '../assets/SalesBooster.png';
+import sareeStore from '../assets/Saree.png';
 import rentDashboard from '../assets/Rent Dasboard.png';
 import zillaVelly from '../assets/ZillaVelly.png';
-import rentAppMobile from '../assets/RentAppMobile.png';
+import floortech from '../assets/floortech.png';
+import rentMobile from '../assets/RentAppMobile.png';
 import jewelleryErp from '../assets/Jewllery ERP.png';
+import tmkComputers from '../assets/Tmk computers.png';
 import devopsAdmin from '../assets/Devops Admin.png';
 
 export const projects = [
@@ -15,7 +19,7 @@ export const projects = [
         category: "Final Year",
         description: "My major project: A comprehensive digital ecosystem for rural development. Features a robust REST API backend (Node.js/Express), a dynamic Admin Panel (React) for officials to manage resources, and a dedicated Mobile App for villagers to access services.",
         techStack: ["React", "Node.js", "Express", "MongoDB", "Mobile App"],
-        image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&q=80" // Tech/Community
+        image: smartVillage
     },
     {
         id: 1,
@@ -31,7 +35,7 @@ export const projects = [
         category: "Website",
         description: "An educational platform offering courses in SAP, Data Analytics, and more. Features a responsive course catalog, student enrollment system, and instructor portals.",
         techStack: ["React", "Tailwind", "Firebase"],
-        image: skillparadise
+        image: skillParadise
     },
     {
         id: 3,
@@ -55,7 +59,7 @@ export const projects = [
         category: "Website",
         description: "A niche e-commerce store for ethnic wear. Implements a custom gallery, filtering system, and a secure checkout process powered by Stripe.",
         techStack: ["React", "Stripe", "CSS Modules"],
-        image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80"
+        image: sareeStore
     },
     {
         id: 6,
@@ -79,7 +83,7 @@ export const projects = [
         category: "Website",
         description: "A modern corporate website for a flooring company. Showcases product patterns, installation services, and a portfolio of past work with a sleek design.",
         techStack: ["React", "Framer Motion", "Styled Components"],
-        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
+        image: floortech
     },
     {
         id: 9,
@@ -87,7 +91,7 @@ export const projects = [
         category: "Mobile App",
         description: "A native experience for tenants to browse rentals, book viewings, and pay rent. Built with React Native to ensuring a smooth cross-platform experience.",
         techStack: ["React Native", "Expo", "Reanimated"],
-        image: rentAppMobile
+        image: rentMobile
     },
     {
         id: 10,
@@ -99,19 +103,18 @@ export const projects = [
     },
     {
         id: 11,
-        title: "Smart School Management",
+        title: "School ERP System",
         category: "Admin Panel",
-        description: "A complete school management solution with advanced scroll-optimized interfaces. Covers admissions, attendance, timetables, and fee processing with a focus on administrative efficiency.",
-        techStack: ["React", "Firebase", "Optimization"],
-        image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80"
+        description: "A complete school management solution covering admissions, attendance, timetables, and fee processing. Designed for scalability and ease of use.",
+        techStack: ["React", "Firebase", "Bootstrap"],
+        image: devopsAdmin
     },
     {
         id: 12,
-        title: "Devops Admin",
-        category: "Admin Panel",
-        description: "Professional Devops administration portal with advanced hostinger tool integration and infrastructure management capabilities.",
-        techStack: ["React", "Node.js", "Docker", "AWS"],
-        image: devopsAdmin
+        title: "TMK Computers",
+        category: "Website",
+        description: "IT services portfolio website. Highlights services like hardware repair, software installation, and network setup with SEO-optimized pages.",
+        techStack: ["React", "Next.js", "Tailwind"],
+        image: tmkComputers
     }
 ];
-

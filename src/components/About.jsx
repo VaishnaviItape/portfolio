@@ -1,141 +1,259 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { profile } from '../data/profile';
+import { Briefcase, GraduationCap, Calendar, Award } from 'lucide-react';
 
 const About = () => {
-  const values = [
-    { id: 1, label: 'Continuous Learning', icon: '🚀' },
-    { id: 2, label: 'User Centricity', icon: '👤' },
-    { id: 3, label: 'Clean Architecture', icon: '📐' },
-    { id: 4, label: 'Impact Driven', icon: '💥' },
-  ];
-
   return (
-    <section id="about" className="section content-focused">
-      <div className="about-creative-grid">
-        <div className="about-main-card card-premium">
-          <div className="badge-creative">Background</div>
-          <h2 className="about-heading-bold">The <span className="text-gradient">Journey</span> So Far</h2>
-          <p className="about-text-p">
-            I'm a self-taught architect of digital realms. My fascination with
-            technology began with a simple "Hello World" and evolved into building
-            full-scale applications that solve real human problems.
-          </p>
-          <div className="values-grid">
-            {values.map(v => (
-              <div key={v.id} className="value-tag">
-                <span className="v-icon">{v.icon}</span>
-                <span className="v-label">{v.label}</span>
+    <section id="about" className="about-editorial">
+      <div className="about-wrapper">
+
+        {/* Intro Content */}
+        <div className="about-intro">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="intro-text"
+          >
+            <span className="section-tag">About Me</span>
+            <h2>Bridging <span className="gradient-text">Design</span> and <span className="gradient-text">Performance</span></h2>
+            <p className="lead-text">
+              I am a Frontend Specialist with a passion for building high-fidelity digital interfaces.
+              My approach combines aesthetic precision with technical rigor.
+            </p>
+            <p className="description-text">{profile.bio}</p>
+
+            <div className="experience-stats">
+              <div className="stat-card">
+                <h3>1.5+</h3>
+                <span>Years of Expertise</span>
               </div>
-            ))}
-          </div>
+              <div className="stat-card">
+                <h3>12+</h3>
+                <span>Projects Shipped</span>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="profile-display"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="image-frame">
+              <img src={profile.imgSrc} alt="Vaishnavi" />
+              <div className="frame-decoration"></div>
+            </div>
+          </motion.div>
         </div>
 
-        <div className="about-info-stack">
-          <div className="info-card-small card-premium">
-            <h3>Education</h3>
-            <p>Computer Science & Engineering</p>
-            <span className="info-sub">2020 - 2024</span>
+        {/* Timeline Section */}
+        <div className="timeline-grid">
+          <div className="timeline-column">
+            <div className="column-header">
+              <Briefcase size={24} className="text-primary" />
+              <h3>Experience</h3>
+            </div>
+            <div className="timeline-items">
+              {profile.workExperience.map((work, i) => (
+                <motion.div
+                  className="timeline-card"
+                  key={`work-${i}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <span className="time-period">{work.duration}</span>
+                  <h4>{work.role}</h4>
+                  <span className="location">{work.company}</span>
+                </motion.div>
+              ))}
+            </div>
           </div>
-          <div className="info-card-small card-premium highlight-p">
-            <h3>Philosophy</h3>
-            <p>"If you can imagine it, you can code it."</p>
+
+          <div className="timeline-column">
+            <div className="column-header">
+              <GraduationCap size={24} className="text-accent" />
+              <h3>Education</h3>
+            </div>
+            <div className="timeline-items">
+              {profile.education.map((edu, i) => (
+                <motion.div
+                  className="timeline-card"
+                  key={`edu-${i}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <span className="time-period">{edu.year}</span>
+                  <h4>{edu.degree}</h4>
+                  <span className="location">{edu.institution}</span>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
       <style>{`
-        .about-creative-grid {
-          display: grid;
-          grid-template-columns: 1.5fr 1fr;
-          gap: 2.5rem;
-          align-items: start;
-        }
+                .about-editorial {
+                    padding: 8rem 6%;
+                    position: relative;
+                }
 
-        .about-main-card {
-          padding: 4rem;
-        }
+                .about-wrapper {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                }
 
-        .about-heading-bold {
-          font-size: 4rem;
-          line-height: 1;
-          margin-bottom: 2rem;
-        }
+                .about-intro {
+                    display: grid;
+                    grid-template-columns: 1.2fr 0.8fr;
+                    gap: 6rem;
+                    align-items: center;
+                    margin-bottom: 8rem;
+                }
 
-        .about-text-p {
-          font-size: 1.2rem;
-          color: var(--text-gray);
-          max-width: 600px;
-          margin-bottom: 3rem;
-          line-height: 1.7;
-        }
+                .intro-text h2 {
+                    font-size: 3.5rem;
+                    margin-bottom: 2rem;
+                }
 
-        .values-grid {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 1rem;
-        }
+                .lead-text {
+                    font-size: 1.25rem;
+                    font-weight: 500;
+                    color: var(--text-main);
+                    margin-bottom: 1.5rem;
+                    line-height: 1.5;
+                }
 
-        .value-tag {
-          display: flex;
-          align-items: center;
-          gap: 0.8rem;
-          padding: 0.8rem 1.5rem;
-          background: var(--bg-accent);
-          border-radius: var(--radius-sm);
-          font-weight: 700;
-          font-size: 0.9rem;
-          border: 1px solid transparent;
-          transition: var(--transition-fast);
-        }
+                .description-text {
+                    color: var(--text-muted);
+                    font-size: 1.1rem;
+                    line-height: 1.7;
+                    margin-bottom: 3rem;
+                }
 
-        .value-tag:hover {
-          border-color: var(--primary);
-          transform: translateY(-5px);
-        }
+                .experience-stats {
+                    display: flex;
+                    gap: 3rem;
+                }
 
-        .about-info-stack {
-          display: flex;
-          flex-direction: column;
-          gap: 2.5rem;
-        }
+                .stat-card h3 {
+                    font-size: 2.5rem;
+                    color: var(--primary);
+                    margin-bottom: 0.5rem;
+                }
 
-        .info-card-small {
-          padding: 2.5rem;
-        }
+                .stat-card span {
+                    font-size: 0.9rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                    color: var(--text-soft);
+                }
 
-        .info-card-small h3 {
-          font-size: 1.5rem;
-          color: var(--primary);
-          margin-bottom: 1rem;
-        }
+                .profile-display {
+                    position: relative;
+                }
 
-        .info-card-small p {
-          font-weight: 600;
-          font-size: 1.1rem;
-          margin-bottom: 0.5rem;
-        }
+                .image-frame {
+                    position: relative;
+                    border-radius: var(--radius-lg);
+                    overflow: hidden;
+                    aspect-ratio: 4/5;
+                    box-shadow: var(--shadow-xl);
+                }
 
-        .info-sub {
-          font-size: 0.9rem;
-          color: var(--text-dim);
-          font-weight: 700;
-        }
+                .image-frame img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
 
-        .highlight-p {
-          background: var(--primary);
-          border: none;
-        }
+                .frame-decoration {
+                    position: absolute;
+                    inset: 0;
+                    border: 12px solid white;
+                    border-radius: var(--radius-lg);
+                    pointer-events: none;
+                }
 
-        .highlight-p h3, .highlight-p p {
-          color: var(--bg-deep);
-        }
+                .timeline-grid {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 4rem;
+                }
 
-        @media (max-width: 1024px) {
-          .about-creative-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-      `}</style>
+                .column-header {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    margin-bottom: 3rem;
+                }
+
+                .column-header h3 {
+                    font-size: 1.75rem;
+                }
+
+                .timeline-items {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2rem;
+                }
+
+                .timeline-card {
+                    background: var(--bg-card);
+                    padding: 2rem;
+                    border-radius: var(--radius-md);
+                    border: 1px solid var(--border-light);
+                    transition: var(--transition-smooth);
+                    position: relative;
+                }
+
+                .timeline-card:hover {
+                    border-color: var(--primary);
+                    box-shadow: var(--shadow-lg);
+                    transform: translateX(10px);
+                }
+
+                .time-period {
+                    display: block;
+                    font-size: 0.85rem;
+                    font-weight: 800;
+                    color: var(--primary);
+                    margin-bottom: 0.5rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                }
+
+                .timeline-card h4 {
+                    font-size: 1.25rem;
+                    margin-bottom: 0.5rem;
+                }
+
+                .location {
+                    color: var(--text-muted);
+                    font-weight: 500;
+                }
+
+                @media (max-width: 900px) {
+                    .about-intro {
+                        grid-template-columns: 1fr;
+                        gap: 4rem;
+                    }
+                    .timeline-grid {
+                        grid-template-columns: 1fr;
+                    }
+                    .intro-text h2 { font-size: 2.5rem; }
+                }
+            `}</style>
     </section>
   );
 };

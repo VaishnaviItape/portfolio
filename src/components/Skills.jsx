@@ -1,116 +1,161 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { profile } from '../data/profile';
-import { Code2, PenTool, Smartphone, Layers } from 'lucide-react';
+import { Terminal, Layout, Database, Cpu, Globe, Tool } from 'lucide-react';
 
 const Skills = () => {
-  const allSkills = [
-    { name: 'React', color: '#61DAFB' },
-    { name: 'JavaScript', color: '#F7DF1E' },
-    { name: 'Node.js', color: '#339933' },
-    { name: 'MongoDB', color: '#47A248' },
-    { name: 'Express', color: '#000000' },
-    { name: 'Tailwind', color: '#06B6D4' },
-    { name: 'Firebase', color: '#FFCA28' },
-    { name: 'Git', color: '#F05032' },
-    { name: 'React Native', color: '#61DAFB' },
-    { name: 'Figma', color: '#F24E1E' },
-    { name: 'Python', color: '#3776AB' },
-    { name: 'TypeScript', color: '#3178C6' }
+  const skillGroups = [
+    {
+      title: "Frontend Mastery",
+      icon: <Layout className="text-primary" />,
+      skills: profile.skills.filter(s => ['React', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind', 'Material UI'].includes(s)),
+      desc: "Crafting beautiful and responsive user interfaces."
+    },
+    {
+      title: "Performance & Tools",
+      icon: <Terminal className="text-accent" />,
+      skills: ['Git', 'GitHub', 'VS Code', 'Vite', 'Webpack'],
+      desc: "Optimizing code and using industry-standard tools."
+    },
+    {
+      title: "Creative Design",
+      icon: <Globe className="text-primary" />,
+      skills: ['Figma', 'UI/UX Design', 'Responsive Design', 'Accessibility'],
+      desc: "Bridging the gap between design and code."
+    }
   ];
 
   return (
-    <section id="skills" className="section">
-      <div className="skills-creative-wrapper">
-        <div className="skills-intro">
-          <div className="badge-creative">Tech Stack</div>
-          <h2 className="title-huge">MY <span className="text-gradient">ARSENAL.</span></h2>
-          <p className="subtitle-gray">Technologies I use to bring ideas into the physical world.</p>
-        </div>
+    <section id="skills" className="skills-editorial">
+      <div className="section-header">
+        <span className="section-tag">Expertise</span>
+        <h2>Technical <span className="gradient-text">Skills</span></h2>
+        <p>A comprehensive toolkit of technologies I use to bring ideas to life.</p>
+      </div>
 
-        <div className="skills-mosaic">
-          {allSkills.map((skill, index) => (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05 }}
-              whileHover={{ scale: 1.1, rotate: index % 2 === 0 ? 2 : -2 }}
-              className="skill-sticker"
-              style={{ '--accent-color': skill.color }}
-            >
-              {skill.name}
-            </motion.div>
-          ))}
-        </div>
+      <div className="skills-grid">
+        {skillGroups.map((group, idx) => (
+          <motion.div
+            key={group.title}
+            className="skill-card-premium"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: idx * 0.1 }}
+            viewport={{ once: true }}
+          >
+            <div className="card-header">
+              <div className="icon-box">
+                {group.icon}
+              </div>
+              <h3>{group.title}</h3>
+            </div>
+            <p className="card-desc">{group.desc}</p>
+            <div className="skill-pills">
+              {group.skills.map(skill => (
+                <span key={skill} className="skill-pill-item">{skill}</span>
+              ))}
+            </div>
+          </motion.div>
+        ))}
       </div>
 
       <style>{`
-        .skills-creative-wrapper {
-          display: flex;
-          flex-direction: column;
-          gap: 5rem;
-        }
+                .skills-editorial {
+                    padding: 8rem 6%;
+                    background: var(--bg-soft);
+                    position: relative;
+                }
 
-        .title-huge {
-          font-size: 5rem;
-          margin-top: 1rem;
-        }
+                .skills-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                    gap: 2rem;
+                    max-width: 1200px;
+                    margin: 0 auto;
+                }
 
-        .subtitle-gray {
-          color: var(--text-gray);
-          font-size: 1.25rem;
-          max-width: 500px;
-          margin-top: 1rem;
-        }
+                .skill-card-premium {
+                    background: var(--bg-card);
+                    padding: 2.5rem;
+                    border-radius: var(--radius-lg);
+                    border: 1px solid var(--border-light);
+                    transition: var(--transition-smooth);
+                }
 
-        .skills-mosaic {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 1.5rem;
-        }
+                .skill-card-premium:hover {
+                    box-shadow: var(--shadow-xl);
+                    transform: translateY(-5px);
+                    border-color: var(--primary);
+                }
 
-        .skill-sticker {
-          padding: 1rem 2rem;
-          background: var(--bg-card);
-          border: var(--border-bold);
-          border-radius: var(--radius-sm);
-          font-family: 'Unbounded', cursive;
-          font-weight: 700;
-          font-size: 1rem;
-          cursor: crosshair;
-          transition: var(--transition-fast);
-          color: white;
-          position: relative;
-        }
+                .card-header {
+                    display: flex;
+                    align-items: center;
+                    gap: 1.25rem;
+                    margin-bottom: 1.5rem;
+                }
 
-        .skill-sticker::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background: var(--accent-color);
-          opacity: 0;
-          transition: var(--transition-fast);
-          z-index: -1;
-          border-radius: inherit;
-        }
+                .icon-box {
+                    width: 48px;
+                    height: 48px;
+                    background: var(--bg-soft);
+                    border-radius: 12px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: var(--transition-fast);
+                }
 
-        .skill-sticker:hover {
-          color: var(--bg-deep);
-          border-color: var(--accent-color);
-          box-shadow: 6px 6px 0px var(--accent-color);
-        }
+                .skill-card-premium:hover .icon-box {
+                    background: var(--primary);
+                    color: white;
+                }
 
-        .skill-sticker:hover::before {
-          opacity: 1;
-        }
+                .skill-card-premium:hover .icon-box svg {
+                    color: white;
+                }
 
-        @media (max-width: 768px) {
-          .title-huge { font-size: 3rem; }
-          .skills-mosaic { gap: 1rem; }
-          .skill-sticker { padding: 0.8rem 1.2rem; font-size: 0.8rem; }
-        }
-      `}</style>
+                .card-header h3 {
+                    font-size: 1.5rem;
+                    letter-spacing: -0.02em;
+                }
+
+                .card-desc {
+                    color: var(--text-muted);
+                    font-size: 0.95rem;
+                    margin-bottom: 2rem;
+                    line-height: 1.6;
+                }
+
+                .skill-pills {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 0.75rem;
+                }
+
+                .skill-pill-item {
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    padding: 0.4rem 1rem;
+                    background: var(--bg-soft);
+                    color: var(--text-main);
+                    border-radius: 50px;
+                    border: 1px solid var(--border-light);
+                    transition: var(--transition-fast);
+                }
+
+                .skill-pill-item:hover {
+                    background: var(--primary);
+                    color: white;
+                    border-color: var(--primary);
+                }
+
+                @media (max-width: 768px) {
+                    .skills-grid {
+                        grid-template-columns: 1fr;
+                    }
+                }
+            `}</style>
     </section>
   );
 };

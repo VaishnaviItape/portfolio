@@ -1,127 +1,142 @@
 import React from 'react';
+import { profile } from '../data/profile';
+import { Github, Linkedin, Twitter, Heart } from 'lucide-react';
 
 const Footer = () => {
     return (
-        <footer className="footer-creative">
-            <div className="footer-top-c">
-                <h2 className="footer-logo-massive">V. <span className="logo-fill">ITAPE</span></h2>
-                <div className="footer-nav-c">
-                    <a href="#about">STORY</a>
-                    <a href="#projects">WORKS</a>
-                    <a href="#skills">SKILLS</a>
-                    <a href="#contact">START</a>
-                </div>
-            </div>
+        <footer className="footer-editorial">
+            <div className="footer-container">
+                <div className="footer-top">
+                    <div className="footer-brand">
+                        <span className="footer-logo">V. ITAPE</span>
+                        <p>Building Digital Excellence</p>
+                    </div>
 
-            <div className="footer-bottom-c">
-                <div className="legal-c">
-                    <span>© {new Date().getFullYear()} VAISHNAVI ITAPE</span>
-                    <span className="dot-sep"></span>
-                    <span>MADE WITH MAGIC</span>
+                    <div className="footer-nav">
+                        <a href="#home">Intro</a>
+                        <a href="#about">About</a>
+                        <a href="#projects">Work</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+
+                    <div className="footer-socials">
+                        <a href={profile.social.github} target="_blank" rel="noopener noreferrer"><Github size={20} /></a>
+                        <a href={profile.social.linkedin} target="_blank" rel="noopener noreferrer"><Linkedin size={20} /></a>
+                        <a href="#"><Twitter size={20} /></a>
+                    </div>
                 </div>
-                <div className="social-links-c">
-                    <a href="https://linkedin.com">LN</a>
-                    <a href="https://github.com">GH</a>
-                    <a href="https://instagram.com">IG</a>
+
+                <div className="footer-bottom">
+                    <p>© {new Date().getFullYear()} Designed & Developed by Vaishnavi Itape</p>
+                    <div className="made-with">
+                        <span>Made with</span>
+                        <Heart size={14} className="text-accent" fill="currentColor" />
+                        <span>in India</span>
+                    </div>
                 </div>
             </div>
 
             <style>{`
-                .footer-creative {
-                    margin-top: 10rem;
-                    padding: 8rem 7% 4rem;
-                    background: var(--bg-dark);
-                    border-top: var(--border-bold);
+                .footer-editorial {
+                    background: var(--bg-soft);
+                    border-top: 1px solid var(--border-light);
+                    padding: 6rem 6% 3rem;
                 }
 
-                .footer-top-c {
+                .footer-container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                }
+
+                .footer-top {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    align-items: center;
+                    margin-bottom: 5rem;
+                }
+
+                .footer-brand .footer-logo {
+                    font-size: 1.5rem;
+                    font-weight: 800;
+                    letter-spacing: -0.02em;
+                    color: var(--text-main);
+                    display: block;
+                    margin-bottom: 0.5rem;
+                }
+
+                .footer-brand p {
+                    color: var(--text-soft);
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                }
+
+                .footer-nav {
                     display: flex;
-                    justify-content: space-between;
-                    align-items: flex-end;
-                    margin-bottom: 8rem;
-                    gap: 4rem;
+                    justify-content: center;
+                    gap: 3rem;
                 }
 
-                .footer-logo-massive {
-                    font-size: clamp(3rem, 15vw, 10rem);
-                    line-height: 0.8;
-                }
-
-                .footer-nav-c {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 1.5rem;
-                    text-align: right;
-                }
-
-                .footer-nav-c a {
-                    font-family: 'Unbounded', cursive;
-                    font-size: 1.25rem;
-                    font-weight: 700;
-                    color: white;
-                    text-decoration: none;
+                .footer-nav a {
+                    font-size: 0.95rem;
+                    font-weight: 600;
+                    color: var(--text-muted);
                     transition: var(--transition-fast);
                 }
 
-                .footer-nav-c a:hover {
+                .footer-nav a:hover {
                     color: var(--primary);
-                    transform: translateX(-10px);
                 }
 
-                .footer-bottom-c {
+                .footer-socials {
+                    display: flex;
+                    justify-content: flex-end;
+                    gap: 2rem;
+                }
+
+                .footer-socials a {
+                    color: var(--text-muted);
+                    transition: var(--transition-fast);
+                }
+
+                .footer-socials a:hover {
+                    color: var(--primary);
+                    transform: translateY(-3px);
+                }
+
+                .footer-bottom {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
                     padding-top: 3rem;
-                    border-top: 1px solid #222;
+                    border-top: 1px solid var(--border-light);
+                    color: var(--text-soft);
+                    font-size: 0.9rem;
+                    font-weight: 500;
                 }
 
-                .legal-c {
+                .made-with {
                     display: flex;
                     align-items: center;
-                    gap: 1rem;
-                    font-size: 0.8rem;
-                    font-weight: 800;
-                    color: var(--text-dim);
-                }
-
-                .dot-sep {
-                    width: 4px;
-                    height: 4px;
-                    background: #333;
-                    border-radius: 50%;
-                }
-
-                .social-links-c {
-                    display: flex;
-                    gap: 2rem;
-                }
-
-                .social-links-c a {
-                    font-size: 0.9rem;
-                    font-weight: 900;
-                    color: white;
-                    text-decoration: none;
-                    transition: var(--transition-fast);
-                }
-
-                .social-links-c a:hover {
-                    color: var(--primary);
+                    gap: 0.5rem;
                 }
 
                 @media (max-width: 900px) {
-                    .footer-top-c {
-                        flex-direction: column;
-                        align-items: flex-start;
-                        margin-bottom: 4rem;
+                    .footer-top {
+                        grid-template-columns: 1fr;
+                        gap: 3rem;
+                        text-align: center;
                     }
-                    .footer-nav-c {
-                        text-align: left;
-                    }
-                    .footer-bottom-c {
+                    .footer-nav {
                         flex-direction: column;
-                        gap: 2rem;
-                        align-items: flex-start;
+                        gap: 1.5rem;
+                    }
+                    .footer-socials {
+                        justify-content: center;
+                    }
+                    .footer-bottom {
+                        flex-direction: column;
+                        gap: 1.5rem;
+                        text-align: center;
                     }
                 }
             `}</style>

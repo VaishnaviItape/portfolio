@@ -1,139 +1,239 @@
 import React from 'react';
-import { Mail, Send } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { profile } from '../data/profile';
+import { Mail, Phone, MapPin, Send, MessageSquare, ArrowRight } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section id="contact" className="section">
-      <div className="contact-creative-wrapper">
-        <div className="contact-text-huge">
-          <div className="badge-creative">Collaboration</div>
-          <h2 className="title-massive">READY TO <span className="text-gradient">START?</span></h2>
-          <p className="contact-p-creative">
-            Whether you have a question or just want to say hi, I'll try my best to get back to you!
-          </p>
-          <div className="contact-quick-info">
-            <div className="info-item-c">
-              <span className="info-c-label">EMAIL</span>
-              <a href="mailto:itapev2@gmail.com" className="info-c-value">itapev2@gmail.com</a>
-            </div>
-          </div>
+    <section id="contact" className="contact-editorial">
+      <div className="contact-container">
+        <div className="contact-header">
+          <span className="section-tag">Contact</span>
+          <h2>Let's build something <span className="gradient-text">extraordinary</span> together.</h2>
+          <p>Whether you have a question or just want to say hi, my inbox is always open.</p>
         </div>
 
-        <div className="contact-form-card card-premium">
-          <form onSubmit={(e) => e.preventDefault()} className="c-form">
-            <div className="c-input-group">
-              <label>What's your name?</label>
-              <input type="text" placeholder="John Doe" required />
+        <div className="contact-grid">
+          {/* Contact Info Cards */}
+          <motion.div
+            className="contact-info"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="info-card-premium">
+              <div className="info-icon bg-blue">
+                <Mail size={24} />
+              </div>
+              <div className="info-details">
+                <span>Email me at</span>
+                <h4>{profile.email}</h4>
+              </div>
             </div>
-            <div className="c-input-group">
-              <label>Your email address</label>
-              <input type="email" placeholder="john@example.com" required />
+
+            <div className="info-card-premium">
+              <div className="info-icon bg-rose">
+                <MessageSquare size={24} />
+              </div>
+              <div className="info-details">
+                <span>Let's chat</span>
+                <h4>{profile.phone}</h4>
+              </div>
             </div>
-            <div className="c-input-group">
-              <label>Tell me about your project</label>
-              <textarea placeholder="Hello, I have an idea..." rows="4" required></textarea>
+
+            <div className="info-card-premium">
+              <div className="info-icon bg-indigo">
+                <MapPin size={24} />
+              </div>
+              <div className="info-details">
+                <span>Based in</span>
+                <h4>{profile.location}</h4>
+              </div>
             </div>
-            <button type="submit" className="btn-main">
-              SEND MESSAGE <Send size={20} />
-            </button>
-          </form>
+          </motion.div>
+
+          {/* Contact CTA */}
+          <motion.div
+            className="contact-cta-box"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="cta-content">
+              <h3>Have a specific project in mind?</h3>
+              <p>I specialize in building custom web solutions from the ground up.</p>
+
+              <a href={`mailto:${profile.email}`} className="btn-primary-large">
+                Send a Message <Send size={20} />
+              </a>
+            </div>
+
+            <div className="cta-footer">
+              <p>Current Availability: <span>Available for Hire</span></p>
+            </div>
+          </motion.div>
         </div>
       </div>
 
       <style>{`
-        .contact-creative-wrapper {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 5rem;
-          align-items: center;
-        }
+                .contact-editorial {
+                    padding: 10rem 6%;
+                    background: var(--secondary);
+                    color: white;
+                    position: relative;
+                    overflow: hidden;
+                }
 
-        .title-massive {
-          font-size: clamp(3rem, 8vw, 6.5rem);
-          line-height: 0.9;
-          margin-bottom: 2.5rem;
-        }
+                .contact-container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    position: relative;
+                    z-index: 10;
+                }
 
-        .contact-p-creative {
-          font-size: 1.25rem;
-          color: var(--text-gray);
-          margin-bottom: 4rem;
-          max-width: 500px;
-        }
+                .contact-header {
+                    text-align: center;
+                    max-width: 800px;
+                    margin: 0 auto 6rem;
+                }
 
-        .contact-quick-info {
-          display: flex;
-          flex-direction: column;
-          gap: 2rem;
-        }
+                .contact-header h2 {
+                    font-size: clamp(2.5rem, 5vw, 4rem);
+                    margin: 1.5rem 0;
+                    color: white;
+                }
 
-        .info-c-label {
-          display: block;
-          font-size: 0.8rem;
-          font-weight: 800;
-          color: var(--primary);
-          margin-bottom: 0.5rem;
-        }
+                .contact-header p {
+                    font-size: 1.25rem;
+                    color: var(--text-soft);
+                }
 
-        .info-c-value {
-          font-size: 1.5rem;
-          font-weight: 700;
-          color: white;
-          text-decoration: none;
-          transition: var(--transition-fast);
-        }
+                .contact-grid {
+                    display: grid;
+                    grid-template-columns: 1fr 1.2fr;
+                    gap: 4rem;
+                }
 
-        .info-c-value:hover {
-          color: var(--primary);
-        }
+                .contact-info {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.5rem;
+                }
 
-        .contact-form-card {
-          padding: 4rem;
-        }
+                .info-card-premium {
+                    background: rgba(255, 255, 255, 0.05);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    padding: 2rem;
+                    border-radius: var(--radius-md);
+                    display: flex;
+                    align-items: center;
+                    gap: 1.5rem;
+                    transition: var(--transition-smooth);
+                }
 
-        .c-form {
-          display: flex;
-          flex-direction: column;
-          gap: 2.5rem;
-        }
+                .info-card-premium:hover {
+                    background: rgba(255, 255, 255, 0.1);
+                    transform: translateX(10px);
+                }
 
-        .c-input-group {
-          display: flex;
-          flex-direction: column;
-          gap: 0.8rem;
-        }
+                .info-icon {
+                    width: 56px;
+                    height: 56px;
+                    border-radius: 14px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
 
-        .c-input-group label {
-          font-family: 'Unbounded', cursive;
-          font-size: 0.8rem;
-          font-weight: 700;
-          color: var(--text-dim);
-        }
+                .bg-blue { background: #3b82f6; }
+                .bg-rose { background: #f43f5e; }
+                .bg-indigo { background: #6366f1; }
 
-        .c-input-group input, .c-input-group textarea {
-          background: var(--bg-accent);
-          border: var(--border-bold);
-          border-radius: var(--radius-sm);
-          padding: 1.25rem;
-          color: white;
-          font-family: inherit;
-          font-size: 1rem;
-          transition: var(--transition-fast);
-        }
+                .info-details span {
+                    font-size: 0.8rem;
+                    color: var(--text-soft);
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                    font-weight: 700;
+                    margin-bottom: 0.25rem;
+                    display: block;
+                }
 
-        .c-input-group input:focus, .c-input-group textarea:focus {
-          outline: none;
-          border-color: var(--primary);
-          background: var(--bg-card);
-        }
+                .info-details h4 {
+                    font-size: 1.25rem;
+                    font-weight: 600;
+                }
 
-        @media (max-width: 1024px) {
-          .contact-creative-wrapper {
-            grid-template-columns: 1fr;
-            gap: 4rem;
-          }
-        }
-      `}</style>
+                .contact-cta-box {
+                    background: white;
+                    color: var(--text-main);
+                    padding: 4rem;
+                    border-radius: var(--radius-lg);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+
+                .cta-content h3 {
+                    font-size: 2rem;
+                    margin-bottom: 1.5rem;
+                }
+
+                .cta-content p {
+                    font-size: 1.1rem;
+                    color: var(--text-muted);
+                    margin-bottom: 3rem;
+                    line-height: 1.6;
+                }
+
+                .btn-primary-large {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 1rem;
+                    padding: 1.25rem 3rem;
+                    background: var(--primary);
+                    color: white;
+                    border-radius: 50px;
+                    font-weight: 700;
+                    font-size: 1.1rem;
+                    transition: var(--transition-smooth);
+                    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+                }
+
+                .btn-primary-large:hover {
+                    background: var(--secondary);
+                    transform: translateY(-5px);
+                    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+                }
+
+                .cta-footer {
+                    margin-top: 4rem;
+                    padding-top: 2rem;
+                    border-top: 1px solid var(--border);
+                }
+
+                .cta-footer p {
+                    font-weight: 600;
+                    color: var(--text-muted);
+                }
+
+                .cta-footer span {
+                    color: #10b981;
+                    margin-left: 0.5rem;
+                }
+
+                @media (max-width: 900px) {
+                    .contact-grid {
+                        grid-template-columns: 1fr;
+                    }
+                    .contact-cta-box {
+                        padding: 2.5rem;
+                    }
+                    .contact-header h2 { font-size: 2rem; }
+                }
+            `}</style>
     </section>
   );
 };
