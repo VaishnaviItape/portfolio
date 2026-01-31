@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { profile } from '../data/profile';
-import { Terminal, Layout, Database, Cpu, Globe, Tool } from 'lucide-react';
+import { Terminal, Layout, Globe } from 'lucide-react';
 
 const Skills = () => {
   const skillGroups = [
