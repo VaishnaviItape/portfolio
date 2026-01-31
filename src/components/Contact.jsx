@@ -1,92 +1,139 @@
 import React from 'react';
-import { profile } from '../data/profile';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Send } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section id="contact">
-      <div className="container" style={{ maxWidth: '800px', textAlign: 'center' }}>
-        <span className="section-label">Get in Touch</span>
-        <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Ready to start a project?</h2>
-        <p style={{ color: 'var(--text-muted)', marginBottom: '3rem' }}>
-          I'm currently available for freelance projects and open to full-time opportunities.
-        </p>
-
-        <div className="contact-card">
-          <div className="info-row">
-            <div className="c-item">
-              <Mail className="c-icon" />
-              <span>{profile.email}</span>
-            </div>
-            <div className="c-item">
-              <Phone className="c-icon" />
-              <span>{profile.phone}</span>
-            </div>
-            <div className="c-item">
-              <MapPin className="c-icon" />
-              <span>{profile.location}</span>
+    <section id="contact" className="section">
+      <div className="contact-creative-wrapper">
+        <div className="contact-text-huge">
+          <div className="badge-creative">Collaboration</div>
+          <h2 className="title-massive">READY TO <span className="text-gradient">START?</span></h2>
+          <p className="contact-p-creative">
+            Whether you have a question or just want to say hi, I'll try my best to get back to you!
+          </p>
+          <div className="contact-quick-info">
+            <div className="info-item-c">
+              <span className="info-c-label">EMAIL</span>
+              <a href="mailto:itapev2@gmail.com" className="info-c-value">itapev2@gmail.com</a>
             </div>
           </div>
+        </div>
 
-          <a href={`mailto:${profile.email}`} className="main-btn">
-            Say Hello <Send size={18} />
-          </a>
+        <div className="contact-form-card card-premium">
+          <form onSubmit={(e) => e.preventDefault()} className="c-form">
+            <div className="c-input-group">
+              <label>What's your name?</label>
+              <input type="text" placeholder="John Doe" required />
+            </div>
+            <div className="c-input-group">
+              <label>Your email address</label>
+              <input type="email" placeholder="john@example.com" required />
+            </div>
+            <div className="c-input-group">
+              <label>Tell me about your project</label>
+              <textarea placeholder="Hello, I have an idea..." rows="4" required></textarea>
+            </div>
+            <button type="submit" className="btn-main">
+              SEND MESSAGE <Send size={20} />
+            </button>
+          </form>
         </div>
       </div>
 
       <style>{`
-                .contact-card {
-                    background: white;
-                    border: 1px solid var(--border);
-                    border-radius: var(--radius);
-                    padding: 3rem;
-                    box-shadow: var(--shadow-lg);
-                }
+        .contact-creative-wrapper {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 5rem;
+          align-items: center;
+        }
 
-                .info-row {
-                    display: flex;
-                    justify-content: center;
-                    gap: 2rem;
-                    flex-wrap: wrap;
-                    margin-bottom: 2.5rem;
-                }
+        .title-massive {
+          font-size: clamp(3rem, 8vw, 6.5rem);
+          line-height: 0.9;
+          margin-bottom: 2.5rem;
+        }
 
-                .c-item {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 0.5rem;
-                }
+        .contact-p-creative {
+          font-size: 1.25rem;
+          color: var(--text-gray);
+          margin-bottom: 4rem;
+          max-width: 500px;
+        }
 
-                .c-icon {
-                    color: var(--primary);
-                    width: 24px;
-                    height: 24px;
-                }
+        .contact-quick-info {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+        }
 
-                .c-item span {
-                    font-weight: 500;
-                    color: var(--text-main);
-                }
+        .info-c-label {
+          display: block;
+          font-size: 0.8rem;
+          font-weight: 800;
+          color: var(--primary);
+          margin-bottom: 0.5rem;
+        }
 
-                .main-btn {
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 0.8rem;
-                    background: var(--text-main);
-                    color: white;
-                    padding: 1rem 3rem;
-                    border-radius: 50px;
-                    font-size: 1.1rem;
-                    font-weight: 600;
-                    transition: transform 0.2s;
-                }
+        .info-c-value {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: white;
+          text-decoration: none;
+          transition: var(--transition-fast);
+        }
 
-                .main-btn:hover {
-                    transform: translateY(-3px);
-                    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-                }
-            `}</style>
+        .info-c-value:hover {
+          color: var(--primary);
+        }
+
+        .contact-form-card {
+          padding: 4rem;
+        }
+
+        .c-form {
+          display: flex;
+          flex-direction: column;
+          gap: 2.5rem;
+        }
+
+        .c-input-group {
+          display: flex;
+          flex-direction: column;
+          gap: 0.8rem;
+        }
+
+        .c-input-group label {
+          font-family: 'Unbounded', cursive;
+          font-size: 0.8rem;
+          font-weight: 700;
+          color: var(--text-dim);
+        }
+
+        .c-input-group input, .c-input-group textarea {
+          background: var(--bg-accent);
+          border: var(--border-bold);
+          border-radius: var(--radius-sm);
+          padding: 1.25rem;
+          color: white;
+          font-family: inherit;
+          font-size: 1rem;
+          transition: var(--transition-fast);
+        }
+
+        .c-input-group input:focus, .c-input-group textarea:focus {
+          outline: none;
+          border-color: var(--primary);
+          background: var(--bg-card);
+        }
+
+        @media (max-width: 1024px) {
+          .contact-creative-wrapper {
+            grid-template-columns: 1fr;
+            gap: 4rem;
+          }
+        }
+      `}</style>
     </section>
   );
 };

@@ -1,3 +1,13 @@
+import visionIndia from '../assets/Vision India.png';
+import skillparadise from '../assets/SkillParsdise.png';
+import qfreemart from '../assets/Qfreemart.png';
+import salesBooster from '../assets/SalesBooster.png';
+import rentDashboard from '../assets/Rent Dasboard.png';
+import zillaVelly from '../assets/ZillaVelly.png';
+import rentAppMobile from '../assets/RentAppMobile.png';
+import jewelleryErp from '../assets/Jewllery ERP.png';
+import devopsAdmin from '../assets/Devops Admin.png';
+
 export const projects = [
     {
         id: 0,
@@ -13,7 +23,7 @@ export const projects = [
         category: "Admin Panel",
         description: "Professional admin dashboard developed at Vision India company. A centralized system for managing skill development, student tracking, and resources. Built to handle complex data and search operations.",
         techStack: ["Angular", "TypeScript", "Node.js"],
-        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
+        image: visionIndia
     },
     {
         id: 2,
@@ -21,7 +31,7 @@ export const projects = [
         category: "Website",
         description: "An educational platform offering courses in SAP, Data Analytics, and more. Features a responsive course catalog, student enrollment system, and instructor portals.",
         techStack: ["React", "Tailwind", "Firebase"],
-        image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&q=80"
+        image: skillparadise
     },
     {
         id: 3,
@@ -29,7 +39,7 @@ export const projects = [
         category: "Website",
         description: "A hyperlocal e-commerce platform connecting local sellers with customers. Includes features for online ordering, appointment booking, and real-time inventory updates.",
         techStack: ["React", "Node.js", "MongoDB"],
-        image: "https://images.unsplash.com/photo-1472851294608-addaec5fa485?w=800&q=80"
+        image: qfreemart
     },
     {
         id: 4,
@@ -37,7 +47,7 @@ export const projects = [
         category: "Admin Panel",
         description: "A high-performance admin dashboard for tracking sales metrics, team performance, and generating automated reports. Visualizes complex data for better decision making.",
         techStack: ["React", "Material UI", "Chart.js"],
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
+        image: salesBooster
     },
     {
         id: 5,
@@ -53,7 +63,7 @@ export const projects = [
         category: "Admin Panel",
         description: "Centralized management console for a property rental service. Allows admins to manage tenants, properties, payments, and maintenance requests efficiently.",
         techStack: ["React", "Redux Toolkit", "Ant Design"],
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
+        image: rentDashboard
     },
     {
         id: 7,
@@ -61,7 +71,7 @@ export const projects = [
         category: "Admin Panel",
         description: "Administrative interface for the Zillavalelly platform. Provides tools for content management, user oversight, and system configuration.",
         techStack: ["React", "Context API", "SASS"],
-        image: "https://images.unsplash.com/photo-1542744094-24638eff58bb?w=800&q=80"
+        image: zillaVelly
     },
     {
         id: 8,
@@ -77,7 +87,7 @@ export const projects = [
         category: "Mobile App",
         description: "A native experience for tenants to browse rentals, book viewings, and pay rent. Built with React Native to ensuring a smooth cross-platform experience.",
         techStack: ["React Native", "Expo", "Reanimated"],
-        image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80"
+        image: rentAppMobile
     },
     {
         id: 10,
@@ -85,22 +95,23 @@ export const projects = [
         category: "Admin Panel",
         description: "Enterprise software for jewellery management. Tracks inventory, gold rates in real-time, supplier ledgers, and barcode generation.",
         techStack: ["React", "Node.js", "PostgreSQL"],
-        image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=800&q=80"
+        image: jewelleryErp
     },
     {
         id: 11,
-        title: "School ERP System",
+        title: "Smart School Management",
         category: "Admin Panel",
-        description: "A complete school management solution covering admissions, attendance, timetables, and fee processing. Designed for scalability and ease of use.",
-        techStack: ["React", "Firebase", "Bootstrap"],
+        description: "A complete school management solution with advanced scroll-optimized interfaces. Covers admissions, attendance, timetables, and fee processing with a focus on administrative efficiency.",
+        techStack: ["React", "Firebase", "Optimization"],
         image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80"
     },
     {
         id: 12,
-        title: "TMK Computers",
-        category: "Website",
-        description: "IT services portfolio website. Highlights services like hardware repair, software installation, and network setup with SEO-optimized pages.",
-        techStack: ["React", "Next.js", "Tailwind"],
-        image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=800&q=80"
+        title: "Devops Admin",
+        category: "Admin Panel",
+        description: "Professional Devops administration portal with advanced hostinger tool integration and infrastructure management capabilities.",
+        techStack: ["React", "Node.js", "Docker", "AWS"],
+        image: devopsAdmin
     }
 ];
+

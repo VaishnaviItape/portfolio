@@ -5,351 +5,230 @@ import { Layers, Code2, Smartphone, GraduationCap, Github, ExternalLink } from '
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('All');
-
-  const categories = [
-    { name: 'All', icon: <Layers size={18} /> },
-    { name: 'Website', icon: <Code2 size={18} /> },
-    { name: 'Admin Panel', icon: <Layers size={18} /> },
-    { name: 'Mobile App', icon: <Smartphone size={18} /> },
-    { name: 'Final Year', icon: <GraduationCap size={18} /> },
-  ];
+  const categories = ['All', 'Website', 'Admin Panel', 'Mobile App'];
 
   const filteredProjects = activeCategory === 'All'
     ? projects
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <section id="projects" className="projects-section">
-      <div className="container">
-        <div className="header-content">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="badge"
-          >
-            <Layers size={14} />
-            <span>Portfolio</span>
-          </motion.div>
+    <section id="projects" className="section">
+      <div className="projects-creative-header">
+        <div className="badge-creative">Selected Works</div>
+        <h2 className="title-huge">DIGITAL <span className="text-gradient">ARTIFACTS.</span></h2>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-          >
-            Featured Projects
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            A curated selection of my work across Web, Mobile, and Enterprise solutions.
-          </motion.p>
-        </div>
-
-        {/* Categories */}
-        <div className="filter-tabs">
-          {categories.map((cat) => (
+        <div className="creative-filters">
+          {categories.map(cat => (
             <button
-              key={cat.name}
-              onClick={() => setActiveCategory(cat.name)}
-              className={`tab-btn ${activeCategory === cat.name ? 'active' : ''}`}
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`c-filter-btn ${activeCategory === cat ? 'active' : ''}`}
             >
-              {cat.icon}
-              {cat.name}
+              {cat}
             </button>
           ))}
         </div>
+      </div>
 
-        {/* Projects Grid */}
-        <motion.div layout className="projects-grid">
-          <AnimatePresence mode='popLayout'>
-            {filteredProjects.map((project) => (
+      <div className="projects-showcase">
+        <AnimatePresence mode='wait'>
+          <motion.div
+            layout
+            key={activeCategory}
+            className="showcase-grid"
+          >
+            {filteredProjects.map((project, idx) => (
               <motion.div
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
                 key={project.id}
-                className="project-card"
+                className={`project-entry card-premium ${project.category === 'Mobile App' ? 'mobile-entry' : ''}`}
               >
-                {/* Image Box */}
-                <div className="card-image-wrapper">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                  />
-                  <div className="image-overlay">
-                    <div className="overlay-actions">
-                      {/* <button className="action-btn" title="View Code">
-                        <Github size={20} />
-                      </button> */}
-                      {/* <button className="action-btn primary" title="Live Demo">
-                        <ExternalLink size={20} />
-                      </button> */}
-                    </div>
-                  </div>
-                  <span className="category-tag">
-                    {project.category}
-                  </span>
+                <div className="p-visual">
+                  <img src={project.image} alt={project.title} />
+                  <div className="p-category-badge">{project.category}</div>
                 </div>
 
-                {/* Content */}
-                <div className="card-content">
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-
-                  <div className="tech-stack">
-                    {project.techStack.map((tech) => (
-                      <span key={tech} className="tech-badge">
-                        {tech}
-                      </span>
-                    ))}
+                <div className="p-details">
+                  <div className="p-meta">
+                    <h3 className="p-title">{project.title}</h3>
+                    <div className="p-stack">
+                      {project.techStack.map(t => <span key={t} className="p-tech">{t}</span>)}
+                    </div>
+                  </div>
+                  <p className="p-desc">{project.description}</p>
+                  <div className="p-actions">
+                    <a href="#" className="p-link main">EXPLORE <ExternalLink size={16} /></a>
+                    <a href="#" className="p-link"><Github size={18} /></a>
                   </div>
                 </div>
               </motion.div>
             ))}
-          </AnimatePresence>
-        </motion.div>
-
-        {filteredProjects.length === 0 && (
-          <div className="no-projects">
-            <p>No projects found in this category.</p>
-          </div>
-        )}
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       <style>{`
-                .projects-section {
-                    padding: 6rem 0;
-                    background: var(--bg-body);
-                    position: relative;
-                }
+        .projects-creative-header {
+          margin-bottom: 6rem;
+        }
 
-                .header-content {
-                    text-align: center;
-                    max-width: 600px;
-                    margin: 0 auto 4rem;
-                }
+        .title-huge {
+          font-size: 5rem;
+          margin-bottom: 3rem;
+        }
 
-                .badge {
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 0.5rem;
-                    padding: 0.5rem 1rem;
-                    background: #e0e7ff;
-                    color: var(--primary);
-                    border-radius: 50px;
-                    font-size: 0.875rem;
-                    font-weight: 600;
-                    margin-bottom: 1rem;
-                }
+        .creative-filters {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
 
-                .header-content h2 {
-                    font-size: 2.5rem;
-                    margin-bottom: 1rem;
-                    background: linear-gradient(to right, var(--primary), #2563eb);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                }
+        .c-filter-btn {
+          padding: 1rem 2rem;
+          background: var(--bg-card);
+          border: var(--border-bold);
+          border-radius: var(--radius-full);
+          color: white;
+          font-family: 'Unbounded', cursive;
+          font-size: 0.8rem;
+          font-weight: 700;
+          cursor: pointer;
+          transition: var(--transition-fast);
+        }
 
-                .header-content p {
-                    color: var(--text-muted);
-                    font-size: 1.1rem;
-                }
+        .c-filter-btn.active {
+          background: var(--primary);
+          color: var(--bg-deep);
+          border-color: var(--primary);
+          box-shadow: var(--shadow-neo);
+        }
 
-                /* Tabs */
-                .filter-tabs {
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    gap: 1rem;
-                    margin-bottom: 3rem;
-                }
+        .showcase-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 3rem;
+        }
 
-                .tab-btn {
-                    display: flex;
-                    align-items: center;
-                    gap: 0.5rem;
-                    padding: 0.6rem 1.5rem;
-                    border-radius: 50px;
-                    border: 1px solid var(--border);
-                    background: var(--bg-card);
-                    color: var(--text-muted);
-                    font-weight: 500;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                }
+        .project-entry {
+          display: flex;
+          flex-direction: column;
+        }
 
-                .tab-btn:hover {
-                    background: #f1f5f9;
-                }
+        .p-visual {
+          position: relative;
+          aspect-ratio: 16/9;
+          overflow: hidden;
+          background: var(--bg-accent);
+        }
 
-                .tab-btn.active {
-                    background: var(--primary);
-                    color: white;
-                    border-color: var(--primary);
-                    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
-                }
+        .mobile-entry .p-visual {
+          aspect-ratio: 9/16;
+          max-height: 500px;
+          margin: 2rem auto;
+          border-radius: 40px;
+          border: 12px solid #222;
+          width: fit-content;
+        }
 
-                /* Grid */
-                .projects-grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-                    gap: 2.5rem;
-                }
+        .p-visual img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: var(--transition-smooth);
+        }
 
-                .project-card {
-                    background: var(--bg-card);
-                    border-radius: 16px;
-                    border: 1px solid var(--border);
-                    overflow: hidden;
-                    box-shadow: var(--shadow-sm);
-                    transition: all 0.3s ease;
-                    display: flex;
-                    flex-direction: column;
-                }
+        .project-entry:hover .p-visual img {
+          transform: scale(1.1);
+        }
 
-                .project-card:hover {
-                    box-shadow: var(--shadow-lg);
-                    transform: translateY(-5px);
-                    border-color: #cbd5e1;
-                }
+        .p-category-badge {
+          position: absolute;
+          top: 1.5rem;
+          left: 1.5rem;
+          padding: 0.5rem 1rem;
+          background: var(--primary);
+          color: var(--bg-deep);
+          font-weight: 900;
+          font-size: 0.7rem;
+          text-transform: uppercase;
+        }
 
-                .card-image-wrapper {
-                    position: relative;
-                    height: 220px;
-                    overflow: hidden;
-                }
+        .p-details {
+          padding: 3rem;
+          background: var(--bg-card);
+        }
 
-                .card-image-wrapper img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    transition: transform 0.5s ease;
-                }
+        .p-title {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+          color: white;
+        }
 
-                .project-card:hover .card-image-wrapper img {
-                    transform: scale(1.05);
-                }
+        .p-stack {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.75rem;
+          margin-bottom: 2rem;
+        }
 
-                .image-overlay {
-                    position: absolute;
-                    inset: 0;
-                    background: rgba(0, 0, 0, 0.4);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    opacity: 0;
-                    transition: opacity 0.3s ease;
-                }
+        .p-tech {
+          font-size: 0.75rem;
+          font-weight: 700;
+          color: var(--primary);
+          padding: 0.4rem 0.8rem;
+          background: rgba(197, 255, 65, 0.05);
+          border: 1px solid rgba(197, 255, 65, 0.2);
+          border-radius: 4px;
+        }
 
-                .project-card:hover .image-overlay {
-                    opacity: 1;
-                }
+        .p-desc {
+          color: var(--text-gray);
+          margin-bottom: 3rem;
+          line-height: 1.6;
+        }
 
-                .overlay-actions {
-                    display: flex;
-                    gap: 1rem;
-                }
+        .p-actions {
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+          border-top: 1px solid #222;
+          padding-top: 2rem;
+        }
 
-                .action-btn {
-                    width: 45px;
-                    height: 45px;
-                    border-radius: 50%;
-                    background: white;
-                    border: none;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: var(--text-main);
-                    cursor: pointer;
-                    transition: all 0.2s;
-                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-                }
+        .p-link {
+          text-decoration: none;
+          color: var(--text-gray);
+          font-weight: 800;
+          font-size: 0.9rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          transition: var(--transition-fast);
+        }
 
-                .action-btn:hover {
-                    transform: scale(1.1);
-                }
+        .p-link.main {
+          color: var(--primary);
+        }
 
-                .action-btn.primary {
-                    background: var(--primary);
-                    color: white;
-                }
+        .p-link:hover {
+          color: white;
+          transform: translateX(5px);
+        }
 
-                .category-tag {
-                    position: absolute;
-                    top: 1rem;
-                    left: 1rem;
-                    background: rgba(255, 255, 255, 0.9);
-                    backdrop-filter: blur(4px);
-                    padding: 0.3rem 0.8rem;
-                    border-radius: 8px;
-                    font-size: 0.75rem;
-                    font-weight: 700;
-                    text-transform: uppercase;
-                    color: var(--text-main);
-                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                }
+        @media (max-width: 1100px) {
+          .showcase-grid { grid-template-columns: 1fr; }
+        }
 
-                .card-content {
-                    padding: 1.5rem;
-                    flex: 1;
-                    display: flex;
-                    flex-direction: column;
-                }
-
-                .card-content h3 {
-                    font-size: 1.25rem;
-                    margin-bottom: 0.5rem;
-                    color: var(--text-main);
-                }
-
-                .card-content p {
-                    font-size: 0.95rem;
-                    color: var(--text-muted);
-                    margin-bottom: 1.5rem;
-                    line-height: 1.6;
-                    flex: 1; /* Pushes tech stack down */
-                }
-
-                .tech-stack {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 0.5rem;
-                    padding-top: 1rem;
-                    border-top: 1px solid var(--border);
-                }
-
-                .tech-badge {
-                    font-size: 0.8rem;
-                    padding: 0.25rem 0.75rem;
-                    background: #f1f5f9;
-                    color: var(--text-muted);
-                    border-radius: 6px;
-                    font-weight: 500;
-                }
-
-                .no-projects {
-                    text-align: center;
-                    color: var(--text-muted);
-                    padding: 3rem;
-                }
-
-                @media (max-width: 768px) {
-                    .projects-grid {
-                        grid-template-columns: 1fr;
-                    }
-                    .header-content h2 {
-                        font-size: 2rem;
-                    }
-                }
-            `}</style>
+        @media (max-width: 768px) {
+          .title-huge { font-size: 3rem; }
+          .p-details { padding: 2rem; }
+          .p-title { font-size: 1.5rem; }
+        }
+      `}</style>
     </section>
   );
 };

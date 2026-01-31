@@ -2,161 +2,140 @@ import React from 'react';
 import { profile } from '../data/profile';
 
 const About = () => {
+  const values = [
+    { id: 1, label: 'Continuous Learning', icon: '🚀' },
+    { id: 2, label: 'User Centricity', icon: '👤' },
+    { id: 3, label: 'Clean Architecture', icon: '📐' },
+    { id: 4, label: 'Impact Driven', icon: '💥' },
+  ];
+
   return (
-    <section id="about">
-      <div className="container">
-        <div className="about-grid">
-
-          {/* Text Content */}
-          <div className="text-col">
-            <span className="section-label">About Me</span>
-            <h2>More than just code</h2>
-            <p className="lead">
-              I'm a developer who cares deeply about user experience. I don't just write code; I build solutions that solve real problems.
-            </p>
-            <p className="body-text">{profile.bio}</p>
-
-            <div className="stats-row">
-              <div className="stat">
-                <span className="num">1.5+</span>
-                <span className="txt">Years Experience</span>
+    <section id="about" className="section content-focused">
+      <div className="about-creative-grid">
+        <div className="about-main-card card-premium">
+          <div className="badge-creative">Background</div>
+          <h2 className="about-heading-bold">The <span className="text-gradient">Journey</span> So Far</h2>
+          <p className="about-text-p">
+            I'm a self-taught architect of digital realms. My fascination with
+            technology began with a simple "Hello World" and evolved into building
+            full-scale applications that solve real human problems.
+          </p>
+          <div className="values-grid">
+            {values.map(v => (
+              <div key={v.id} className="value-tag">
+                <span className="v-icon">{v.icon}</span>
+                <span className="v-label">{v.label}</span>
               </div>
-              <div className="stat">
-                <span className="num">12+</span>
-                <span className="txt">Projects Completed</span>
-              </div>
-            </div>
+            ))}
           </div>
+        </div>
 
-          {/* Timeline Content */}
-          <div className="timeline-col">
-            <h3 className="col-title">Experience & Education</h3>
-
-            <div className="timeline">
-              {profile.workExperience.map((work, i) => (
-                <div className="timeline-item" key={`work-${i}`}>
-                  <div className="dot active"></div>
-                  <span className="date">{work.duration}</span>
-                  <h4>{work.role}</h4>
-                  <div className="place">{work.company}</div>
-                </div>
-              ))}
-
-              {profile.education.map((edu, i) => (
-                <div className="timeline-item" key={`edu-${i}`}>
-                  <div className="dot"></div>
-                  <span className="date">{edu.year}</span>
-                  <h4>{edu.degree}</h4>
-                  <div className="place">{edu.institution}</div>
-                </div>
-              ))}
-            </div>
+        <div className="about-info-stack">
+          <div className="info-card-small card-premium">
+            <h3>Education</h3>
+            <p>Computer Science & Engineering</p>
+            <span className="info-sub">2020 - 2024</span>
+          </div>
+          <div className="info-card-small card-premium highlight-p">
+            <h3>Philosophy</h3>
+            <p>"If you can imagine it, you can code it."</p>
           </div>
         </div>
       </div>
 
       <style>{`
-            .about-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 4rem;
-                align-items: start;
-            }
+        .about-creative-grid {
+          display: grid;
+          grid-template-columns: 1.5fr 1fr;
+          gap: 2.5rem;
+          align-items: start;
+        }
 
-            .lead {
-                font-size: 1.25rem;
-                color: var(--text-main);
-                font-weight: 500;
-                margin-bottom: 1.5rem;
-            }
+        .about-main-card {
+          padding: 4rem;
+        }
 
-            .body-text {
-                color: var(--text-muted);
-                margin-bottom: 2.5rem;
-            }
+        .about-heading-bold {
+          font-size: 4rem;
+          line-height: 1;
+          margin-bottom: 2rem;
+        }
 
-            .stats-row {
-                display: flex;
-                gap: 3rem;
-                border-top: 1px solid var(--border);
-                padding-top: 2rem;
-            }
+        .about-text-p {
+          font-size: 1.2rem;
+          color: var(--text-gray);
+          max-width: 600px;
+          margin-bottom: 3rem;
+          line-height: 1.7;
+        }
 
-            .stat {
-                display: flex;
-                flex-direction: column;
-            }
+        .values-grid {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
 
-            .num {
-                font-size: 2.5rem;
-                font-weight: 700;
-                color: var(--primary);
-                line-height: 1;
-                margin-bottom: 0.5rem;
-            }
+        .value-tag {
+          display: flex;
+          align-items: center;
+          gap: 0.8rem;
+          padding: 0.8rem 1.5rem;
+          background: var(--bg-accent);
+          border-radius: var(--radius-sm);
+          font-weight: 700;
+          font-size: 0.9rem;
+          border: 1px solid transparent;
+          transition: var(--transition-fast);
+        }
 
-            .txt {
-                font-size: 0.9rem;
-                color: var(--text-muted);
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-            }
+        .value-tag:hover {
+          border-color: var(--primary);
+          transform: translateY(-5px);
+        }
 
-            .col-title {
-                margin-bottom: 2rem;
-                padding-bottom: 1rem;
-                border-bottom: 2px solid var(--border);
-            }
+        .about-info-stack {
+          display: flex;
+          flex-direction: column;
+          gap: 2.5rem;
+        }
 
-            .timeline-item {
-                position: relative;
-                padding-left: 2rem;
-                padding-bottom: 2.5rem;
-                border-left: 2px solid var(--border);
-            }
+        .info-card-small {
+          padding: 2.5rem;
+        }
 
-            .timeline-item:last-child {
-                border-left-color: transparent;
-            }
+        .info-card-small h3 {
+          font-size: 1.5rem;
+          color: var(--primary);
+          margin-bottom: 1rem;
+        }
 
-            .dot {
-                position: absolute;
-                left: -6px; /* 2px border width + 4px offset to center 10px dot */
-                top: 0;
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                background: var(--bg-body);
-                border: 2px solid var(--text-muted);
-            }
+        .info-card-small p {
+          font-weight: 600;
+          font-size: 1.1rem;
+          margin-bottom: 0.5rem;
+        }
 
-            .dot.active {
-                background: var(--primary);
-                border-color: var(--primary);
-            }
+        .info-sub {
+          font-size: 0.9rem;
+          color: var(--text-dim);
+          font-weight: 700;
+        }
 
-            .date {
-                font-size: 0.85rem;
-                font-weight: 600;
-                color: var(--primary);
-                margin-bottom: 0.25rem;
-                display: block;
-            }
+        .highlight-p {
+          background: var(--primary);
+          border: none;
+        }
 
-            .timeline-item h4 {
-                font-size: 1.1rem;
-                margin-bottom: 0.25rem;
-            }
+        .highlight-p h3, .highlight-p p {
+          color: var(--bg-deep);
+        }
 
-            .place {
-                font-size: 0.95rem;
-                color: var(--text-muted);
-            }
-
-            @media (max-width: 768px) {
-                .about-grid { grid-template-columns: 1fr; }
-            }
-        `}</style>
+        @media (max-width: 1024px) {
+          .about-creative-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
     </section>
   );
 };
