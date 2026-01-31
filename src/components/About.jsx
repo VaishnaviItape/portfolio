@@ -45,7 +45,7 @@ const About = () => {
             viewport={{ once: true }}
           >
             <div className="image-frame">
-              <img src={profile.imgSrc} alt="Vaishnavi" />
+              <img src={profile.imgSrc} alt={`Vaishnavi Itape - ${profile.role}`} />
               <div className="frame-decoration"></div>
             </div>
           </motion.div>
